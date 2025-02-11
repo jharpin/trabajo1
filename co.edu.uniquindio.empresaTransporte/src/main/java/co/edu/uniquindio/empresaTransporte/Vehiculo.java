@@ -15,6 +15,12 @@ public class Vehiculo {
         this.numeroChasis = numeroChasis;
     }
 
+    public String mostrarVehiculo() {
+        String info="la info del vehiculo es "+toString();
+        System.out.println(info);
+        return info;
+    }
+
     public String getMarca() {
         return marca;
     }
@@ -50,6 +56,6 @@ public class Vehiculo {
     }
 
     public String toString() {
-        return "El vehiculo tiene las caracteristicas de: "+marca + " " + modelo + " " + placa + " " + color + " " + numeroChasis;
+        return "modelo: "+modelo +" ,placa: "+placa+" ,color: "+color+" ,numeroChasis: "+numeroChasis;
     }
 }

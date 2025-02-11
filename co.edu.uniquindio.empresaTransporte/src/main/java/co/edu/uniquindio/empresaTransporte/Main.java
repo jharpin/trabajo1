@@ -5,8 +5,10 @@ package co.edu.uniquindio.empresaTransporte;
 public class Main {
     public static void main(String[] args) {
 
-        Vehiculo vh=new Vehiculo("toyota","2002","123ACD","azul",5);
-        System.out.println(vh.toString());
+        VehiculoTransporte vh=new VehiculoTransporte("toyota","2002","123ACD","azul",5,12);
+        VehiculoCarga Vc=new VehiculoCarga("hiunday","2024","567GHJ","MORADO",3,7,8);
+        vh.mostrarVehiculo();
+        Vc.mostrarVehiculo();
     }
 
 }
