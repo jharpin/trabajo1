@@ -3,8 +3,8 @@ package co.edu.uniquindio.empresaTransporte;
 public class VehiculoCarga extends Vehiculo {
     public double capacidadCarga;
     public int numeroEjes;
-    public VehiculoCarga(String marca, String modelo, String placa, String color, int numeroChasis, double capacidadCarga, int numeroEjes) {
-        super(marca, modelo, placa, color, numeroChasis);
+    public VehiculoCarga(String marca, String modelo, String placa, String color, String numeroChasis,String responsable, double capacidadCarga, int numeroEjes) {
+        super(marca, modelo, placa, color, numeroChasis,responsable);
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
     }
@@ -21,8 +21,5 @@ public class VehiculoCarga extends Vehiculo {
     public void setNumeroEjes(int numeroEjes) {
         this.numeroEjes = numeroEjes;
     }
-     public String toString() {
-        return super.toString()+" ,Capcacidad de carga: " + capacidadCarga +" toneladas"+ ", ejes: " + numeroEjes;
-     }
 }
 

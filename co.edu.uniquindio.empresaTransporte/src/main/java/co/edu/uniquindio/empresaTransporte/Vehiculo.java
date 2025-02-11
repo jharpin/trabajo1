@@ -5,20 +5,17 @@ public class Vehiculo {
     public String modelo;
     public String placa;
     public String color;
-    public int numeroChasis;
+    public String numeroChasis;
+    public String responsable;
 
-    public Vehiculo(String marca, String modelo, String placa, String color, int numeroChasis) {
+
+    public Vehiculo(String marca, String modelo, String placa, String color, String numeroChasis, String responsable) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.color = color;
         this.numeroChasis = numeroChasis;
-    }
-
-    public String mostrarVehiculo() {
-        String info="la info del vehiculo es "+toString();
-        System.out.println(info);
-        return info;
+        this.responsable = responsable;
     }
 
     public String getMarca() {
@@ -34,11 +31,9 @@ public class Vehiculo {
     public void setModelo(String modelo){
         this.modelo=modelo;
     }
-
     public String getPlaca() {
         return placa;
     }
-
     public void setPlaca(String placa){
         this.placa = placa;
     }
@@ -48,14 +43,16 @@ public class Vehiculo {
     public void setCorlor(String corlor){
         this.color = corlor;
     }
-    public int getNumeroChasis() {
+    public String getNumeroChasis() {
         return numeroChasis;
     }
-    public void setNumeroChasis(int numeroChasis) {
+    public void setNumeroChasis(String numeroChasis) {
         this.numeroChasis = numeroChasis;
     }
-
-    public String toString() {
-        return "modelo: "+modelo +" ,placa: "+placa+" ,color: "+color+" ,numeroChasis: "+numeroChasis;
+    public String getResponsable() {
+        return responsable;
+    }
+    public void setResponsable(String responsbale){
+        this.responsable = responsable;
     }
 }
