@@ -1,12 +1,12 @@
 package co.edu.uniquindio.empresaTransporte;
 
 public class VehiculoTransporte extends Vehiculo{
-    public int maxPasajeros;
-    private int pasajerosTransportados;
+    public int maximoPasajeros;
+    public int pasajerosTransportados;
 
-    public VehiculoTransporte(String marca, String modelo, String placa, String color, String numeroChasis, int maxPasajeros,String responsable,int maximoPasajeros) {
+    public VehiculoTransporte(String marca, String modelo, String placa, String color, String numeroChasis,String responsable,int maximoPasajeros) {
         super(marca,modelo,placa,color,numeroChasis,responsable);
-        this.maxPasajeros = maxPasajeros;
+        this.maximoPasajeros = maximoPasajeros;
         this.pasajerosTransportados = 0;
     }
 
@@ -14,11 +14,17 @@ public class VehiculoTransporte extends Vehiculo{
         this.pasajerosTransportados += numeroPasajeros;
     }
 
-    public int getMaxPasajeros() {
-        return maxPasajeros;
+    public int getMaximoPasajeros() {
+        return maximoPasajeros;
     }
-    public void setMaxPasajeros(int maxPasajeros) {
-        this.maxPasajeros = maxPasajeros;
+    public void setMaxPasajeros(int maximoPasajeros) {
+        this.maximoPasajeros = maximoPasajeros;
+    }
+    public int getPasajerosTransportados() {
+        return pasajerosTransportados;
+    }
+    public void setPasajerosTransportados(int pasajerosTransportados) {
+        this.pasajerosTransportados = pasajerosTransportados;
     }
 
 }
