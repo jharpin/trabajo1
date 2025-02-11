@@ -9,15 +9,15 @@ public class App {
         inicializarDatos(empresa);
         int opcion=0;
 
-        while (opcion!=5) {
+        while (opcion!=9) {
             System.out.println("\nMenú:");
-            System.out.println("1. Ingresar Vehiculo de Transporte");
-            System.out.println("2. Ingresar vehiculo de Carga");
+            System.out.println("1. Ingresar Vehiculo de carga");
+            System.out.println("2. Ingresar vehiculo de transporte");
             System.out.println("3. Buscar vehiculo por placa");
             System.out.println("4. Mostrar Vehiculos registrados ");
             System.out.println("5. Obtener usuarios por peso ");
-            System.out.println("6. Obtener usuarios por placa ");
-            System.out.println("7. Obtener propietarios mayores de 40 años ");
+            System.out.println("6. Obtener propietarios mayores de 40 años ");
+            System.out.println("7.ingresar un numero de pasajeros a un vehiculo transporte");
             System.out.println("8. Mostrar número de pasajeros transportados por vehículo");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
@@ -40,11 +40,12 @@ public class App {
                 case 5:
                     obtenerUsuariosPorPeso(scanner, empresa);
                     break;
+
                 case 6:
-                    obtenerUsuariosPorPlaca(scanner, empresa);
+                    obtenerPropietariosMayoresDe40(empresa);
                     break;
                 case 7:
-                    obtenerPropietariosMayoresDe40(empresa);
+                    ingresarPasajerosaVehiculoTransporte(scanner, empresa);
                     break;
                 case 8:
                     mostrarPasajerosTransportados(scanner, empresa);
@@ -54,7 +55,7 @@ public class App {
 
     }
     public static void inicializarDatos(EmpresaTransporte empresa){
-        //Se crean 5 propietarios y 5 vehiculos de carga y se guardan en empresa
+
         Propietario propietario1= new Propietario("sandro", "182387128938980", "sandro@gmail.com", 12,"321560", null);
         Propietario propietario2= new Propietario("roberta", "1092783782871", "roberta@gmail.com", 60,"321561", null);
         Propietario propietario3= new Propietario("ruka", "1090272982", "ruka@gmail.com", 18,"321562", null);
@@ -109,7 +110,7 @@ public class App {
 
         VehiculoTransporte vehiculoTransporte3= new VehiculoTransporte("YAMAHA","2000","FPI10",   "Negro","cd23", "ajhga",  40);
         propietario8.vehiculoRegistrado=vehiculoTransporte3.placa;
-        vehiculoTransporte1.transportarPasajeros(2);
+
         empresa.propietarios.add(propietario6);
         empresa.propietarios.add(propietario7);
         empresa.propietarios.add(propietario8);
@@ -164,7 +165,7 @@ public class App {
 
         System.out.print("Ingrese el numero de ejes del vehiculo: ");
         vehiculoCarga.numeroEjes = scanner.nextInt();
-        // guardo lista
+
 
         empresa.propietarios.add(propietario);
         empresa.vehiculosCarga.add(vehiculoCarga);
@@ -212,7 +213,7 @@ public class App {
 
         System.out.println("Ingrese la capacidad maxima de pasajeros del vehiculo: ");
         vehiculoTransporte.maximoPasajeros= Integer.parseInt(scanner.nextLine());
-        // guardo lista
+
 
         empresa.propietarios.add(propietario);
         empresa.vehiculosTransporte.add(vehiculoTransporte);
@@ -300,6 +301,8 @@ public class App {
         System.out.println("Número de propietarios mayores de 40 años: " + contador );
     }
 
+
+
     public static void mostrarPasajerosTransportados(Scanner scanner, EmpresaTransporte empresa) {
         System.out.print("Ingrese la placa del vehículo: ");
         String placa = scanner.next();
@@ -314,8 +317,26 @@ public class App {
 
         System.out.println("No se encontró un vehículo con la placa especificada.");
     }
+    public static void ingresarPasajerosaVehiculoTransporte(Scanner scanner, EmpresaTransporte empresa) {
+        System.out.print("Ingrese la placa del vehículo: ");
+        scanner.nextLine();
+        String placa = scanner.nextLine();
 
+        for (VehiculoTransporte vehiculo : empresa.vehiculosTransporte) {
+            if (vehiculo.placa.equals(placa)) {
+                System.out.print("Ingrese el número de pasajeros: ");
+                int pasajeros = scanner.nextInt();
+                vehiculo.transportarPasajeros(pasajeros);
+                System.out.println("Pasajeros ingresados correctamente.");
+                return;
+            }
+        }
+
+        System.out.println("Vehículo no encontrado.");
+    }
 }
+
+
 
 
 
