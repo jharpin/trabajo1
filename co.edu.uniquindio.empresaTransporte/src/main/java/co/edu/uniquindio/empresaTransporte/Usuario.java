@@ -5,14 +5,11 @@ public class Usuario {
     public int edad;
     public double peso;
     public String vehiculoRegistrado;
-
-
     public Usuario(String nombre, int edad, double peso, String vehiculoRegistrado) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.vehiculoRegistrado = vehiculoRegistrado;
-
     }
     public String getNombre() {
         return nombre;
@@ -38,5 +35,4 @@ public class Usuario {
     public void serVehiculoRegistrado(String vehiculoRegistrado){
         this.vehiculoRegistrado = vehiculoRegistrado;
     }
-
 }

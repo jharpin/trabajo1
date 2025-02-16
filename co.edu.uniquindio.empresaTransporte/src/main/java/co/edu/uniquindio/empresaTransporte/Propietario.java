@@ -7,7 +7,6 @@ public class Propietario {
     public int edad;
     public String celular;
     public String vehiculoRegistrado;
-
     public Propietario(String nombre, String cedula, String email, int edad, String celular, String vehiculoRegistrado) {
         this.nombre = nombre;
         this.cedula = cedula;

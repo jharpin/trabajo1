@@ -3,27 +3,19 @@ package co.edu.uniquindio.empresaTransporte;
 public class VehiculoTransporte extends Vehiculo{
     public int maximoPasajeros;
     public int pasajerosTransportados;
-
     public VehiculoTransporte(String marca, String modelo, String placa, String color, String numeroChasis,String responsable,int maximoPasajeros) {
         super(marca,modelo,placa,color,numeroChasis,responsable);
         this.maximoPasajeros = maximoPasajeros;
         this.pasajerosTransportados = 0;
     }
-
     public String transportarPasajeros(int numeroPasajeros) {
-        String mensaje;
-        if(numeroPasajeros<=getMaximoPasajeros()){
+        if (numeroPasajeros <= maximoPasajeros) {  // Se usa maximoPasajeros sin el getter
             this.pasajerosTransportados += numeroPasajeros;
-            mensaje="los pasajeros se agregaron correctamente";
-            System.out.println(mensaje);
+            return "Pasajeros agregados correctamente";  // MENSAJE MODIFICADO
+        } else {
+            return "No se pueden agregar " + numeroPasajeros + " pasajeros. Máximo permitido: " + maximoPasajeros;
         }
-        else {
-            mensaje="los pasajeros sobrepasan el maximo";
-            System.out.println(mensaje);
-        }
-        return mensaje;
     }
-
     public int getMaximoPasajeros() {
         return maximoPasajeros;
     }

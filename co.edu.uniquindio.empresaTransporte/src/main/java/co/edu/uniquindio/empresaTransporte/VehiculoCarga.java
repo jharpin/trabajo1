@@ -8,7 +8,6 @@ public class VehiculoCarga extends Vehiculo {
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
     }
-
     public double getCapacidadCarga() {
         return capacidadCarga;
     }

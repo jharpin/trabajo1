@@ -7,8 +7,6 @@ public class Vehiculo {
     public String color;
     public String numeroChasis;
     public String responsable;
-
-
     public Vehiculo(String marca, String modelo, String placa, String color, String numeroChasis, String responsable) {
         this.marca = marca;
         this.modelo = modelo;
@@ -17,7 +15,6 @@ public class Vehiculo {
         this.numeroChasis = numeroChasis;
         this.responsable = responsable;
     }
-
     public String getMarca() {
         return marca;
     }
