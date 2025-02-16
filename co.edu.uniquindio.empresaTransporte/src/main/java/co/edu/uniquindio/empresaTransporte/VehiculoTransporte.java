@@ -10,8 +10,18 @@ public class VehiculoTransporte extends Vehiculo{
         this.pasajerosTransportados = 0;
     }
 
-    public void transportarPasajeros(int numeroPasajeros) {
-        this.pasajerosTransportados += numeroPasajeros;
+    public String transportarPasajeros(int numeroPasajeros) {
+        String mensaje;
+        if(numeroPasajeros<=getMaximoPasajeros()){
+            this.pasajerosTransportados += numeroPasajeros;
+            mensaje="los pasajeros se agregaron correctamente";
+            System.out.println(mensaje);
+        }
+        else {
+            mensaje="los pasajeros sobrepasan el maximo";
+            System.out.println(mensaje);
+        }
+        return mensaje;
     }
 
     public int getMaximoPasajeros() {
