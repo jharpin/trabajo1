@@ -3,10 +3,10 @@ package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 import java.util.ArrayList;
 public class EmpresaTransporte {
     private String nombre;
-    public ArrayList<Propietario>propietarios;
-    public ArrayList<VehiculoCarga>vehiculosCarga;
-    public ArrayList<VehiculoTransporte>vehiculosTransporte;
-    public ArrayList<Usuario>usuarios;
+    private ArrayList<Propietario>propietarios=new ArrayList<>();
+    private ArrayList<VehiculoCarga>vehiculosCarga=new ArrayList<>();
+    private ArrayList<VehiculoTransporte>vehiculosTransporte=new ArrayList<>();
+    private ArrayList<Usuario>usuarios=new ArrayList<>();
     public EmpresaTransporte() {
     }
     public String getNombre() {
@@ -32,5 +32,11 @@ public class EmpresaTransporte {
     }
     public void setVehiculosTransporte(ArrayList<VehiculoTransporte> vehiculosTransporte) {
         this.vehiculosTransporte = vehiculosTransporte;
+    }
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 }

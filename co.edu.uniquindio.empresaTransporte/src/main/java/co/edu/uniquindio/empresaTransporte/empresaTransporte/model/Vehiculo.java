@@ -1,12 +1,12 @@
 package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 public class Vehiculo {
-    public String marca;
-    public String modelo;
-    public String placa;
-    public String color;
-    public String numeroChasis;
-    public String responsable;
+    private String marca;
+    private String modelo;
+    private String placa;
+    private String color;
+    private String numeroChasis;
+    private String responsable;
     public Vehiculo(String marca, String modelo, String placa, String color, String numeroChasis, String responsable) {
         this.marca = marca;
         this.modelo = modelo;
@@ -34,11 +34,11 @@ public class Vehiculo {
     public void setPlaca(String placa){
         this.placa = placa;
     }
-    public String getCorlor() {
+    public String getColor() {
         return color;
     }
-    public void setCorlor(String corlor){
-        this.color = corlor;
+    public void setColor(String color){
+        this.color = color;
     }
     public String getNumeroChasis() {
         return numeroChasis;
@@ -49,7 +49,18 @@ public class Vehiculo {
     public String getResponsable() {
         return responsable;
     }
-    public void setResponsable(String responsbale){
+    public void setResponsable(String responsable){
         this.responsable = responsable;
+    }
+
+    @Override
+    public String toString() {
+        return"Vehiculo{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", color='" + color + '\'' +
+                ", numeroChasis='" + numeroChasis + '\'' +
+                ", responsable='" + responsable + '\'' ;
     }
 }

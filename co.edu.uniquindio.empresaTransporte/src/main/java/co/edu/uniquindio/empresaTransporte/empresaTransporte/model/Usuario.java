@@ -1,10 +1,10 @@
 package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 public class Usuario {
-    public String nombre;
-    public int edad;
-    public double peso;
-    public String vehiculoRegistrado;
+    private String nombre;
+    private int edad;
+    private double peso;
+    private String vehiculoRegistrado;
     public Usuario(String nombre, int edad, double peso, String vehiculoRegistrado) {
         this.nombre = nombre;
         this.edad = edad;
@@ -34,5 +34,15 @@ public class Usuario {
     }
     public void setVehiculoRegistrado(String vehiculoRegistrado){
         this.vehiculoRegistrado = vehiculoRegistrado;
+    }
+
+    @Override
+    public String toString(){
+        return "Usuario{" +
+                ", Nombre= "+nombre+'\''+
+                ", Edad= "+edad+'\''+
+                ", Peso= "+peso+'\''+
+                ", Vehiculo Registrado= "+vehiculoRegistrado+
+                "}";
     }
 }
