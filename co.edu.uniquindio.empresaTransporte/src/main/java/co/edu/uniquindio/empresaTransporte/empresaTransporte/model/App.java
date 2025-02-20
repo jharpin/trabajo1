@@ -1,23 +1,24 @@
-package co.edu.uniquindio.empresaTransporte;
-import java.util.Scanner;
+package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
+import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
         EmpresaTransporte empresa= new EmpresaTransporte();
         inicializarDatos(empresa);
         int opcion=0;
-        while (opcion!=9) {
+        while (opcion!=10 && opcion <10) {
             System.out.println("\nMenú:");
             System.out.println("1. Ingresar Vehiculo de carga");
             System.out.println("2. Ingresar vehiculo de transporte");
-            System.out.println("3. Buscar vehiculo por placa");
-            System.out.println("4. Mostrar Vehiculos registrados ");
-            System.out.println("5. Obtener usuarios por peso ");
-            System.out.println("6. Obtener propietarios mayores de 40 años ");
-            System.out.println("7.ingresar un numero de pasajeros a un vehiculo transporte");
-            System.out.println("8. Mostrar número de pasajeros transportados por vehículo");
-            System.out.println("9. Salir");
+            System.out.println("3. Ingresar usuario");
+            System.out.println("4. Buscar vehiculo por placa");
+            System.out.println("5. Mostrar Vehiculos registrados ");
+            System.out.println("6. Obtener usuarios por peso ");
+            System.out.println("7. Obtener propietarios mayores de 40 años ");
+            System.out.println("8. ingresar un numero de pasajeros a un vehiculo transporte");
+            System.out.println("9. Mostrar número de pasajeros transportados por vehículo");
+            System.out.println("10. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -28,27 +29,29 @@ public class App {
                     ingresarVehiculoTransporte(scanner,empresa);
                     break;
                 case 3:
-                    buscarVehiculoPlaca(scanner,empresa);
+                    ingresarUsuario(scanner,empresa);
                     break;
                 case 4:
+                    buscarVehiculoPlaca(scanner,empresa);
+                    break;
+
+                case 5:
                     mostrarVehiculos(scanner, empresa);
                     break;
-                case 5:
+                case 6:
                     obtenerUsuariosPorPeso(scanner, empresa);
                     break;
-                case 6:
+                case 7:
                     obtenerPropietariosMayoresDe40(empresa);
                     break;
-                case 7:
+                case 8:
                     ingresarPasajerosaVehiculoTransporte(scanner, empresa);
                     break;
-                case 8:
+                case 9:
                     mostrarPasajerosTransportados(scanner, empresa);
                     break;
-
             }
         }
-
     }
     public static void inicializarDatos(EmpresaTransporte empresa){
         Propietario propietario1= new Propietario("ANDRES", "18238712893", "andes@gmail.com", 10,"321570", null);
@@ -110,7 +113,7 @@ public class App {
         System.out.print("Ingrese el email del propietario : ");
         propietario.email  = scanner.nextLine();
         System.out.print("Ingrese la edad del propietario : ");
-        propietario.edad = Integer.parseInt(scanner.nextLine());
+        propietario.edad = scanner.nextInt();
         System.out.print("Ingrese el telefono del propietario : ");
         propietario.celular = scanner.nextLine();
         System.out.print("Ingrese la placa del vehiculo de carga : ");
@@ -123,7 +126,7 @@ public class App {
         System.out.print("Ingrese el color del vehiculo: ");
         vehiculoCarga.color = scanner.nextLine();
         System.out.print("Ingrese la capacidad del vehiculo: ");
-        vehiculoCarga.capacidadCarga = Double.parseDouble(scanner.nextLine());
+        vehiculoCarga.capacidadCarga = scanner.nextDouble();
         System.out.println("Ingrese el numero del chasis: ");
         vehiculoCarga.numeroChasis = scanner.nextLine();
         System.out.print("Ingrese el numero de ejes del vehiculo: ");
@@ -158,10 +161,42 @@ public class App {
         System.out.println("Ingrese el numero del chasis: ");
         vehiculoTransporte.numeroChasis = scanner.nextLine();
         System.out.println("Ingrese la capacidad maxima de pasajeros del vehiculo: ");
-        vehiculoTransporte.maximoPasajeros= Integer.parseInt(scanner.nextLine());
+        vehiculoTransporte.maximoPasajeros= scanner.nextInt();
         empresa.propietarios.add(propietario);
         empresa.vehiculosTransporte.add(vehiculoTransporte);
     }
+    public static void ingresarUsuario(Scanner scanner, EmpresaTransporte empresa) {
+        Usuario usuario = new Usuario(null, 0, 0.0, null);
+        scanner.nextLine();
+        System.out.println("Ingrese el nombre del usuario: ");
+        usuario.nombre = scanner.nextLine();
+        System.out.println("Ingrese la edad del usuario: ");
+        usuario.edad = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Ingrese el peso del usuario: ");
+        usuario.peso = scanner.nextDouble();
+        scanner.nextLine();
+        String placa;
+        VehiculoTransporte vehiculoAsociado = null;
+        do {
+            System.out.println("Ingrese la placa del vehículo registrado: ");
+            placa = scanner.nextLine();
+            for (VehiculoTransporte vehiculo : empresa.getVehiculosTransporte()) {
+                if (vehiculo.getPlaca().equals(placa)) {
+                    vehiculoAsociado = vehiculo;
+                    break;
+                }
+            }
+            if (vehiculoAsociado == null) {
+                System.out.println(" Vehículo no encontrado. Intente nuevamente.");
+            }
+        } while (vehiculoAsociado == null);
+        usuario.vehiculoRegistrado = placa;
+        empresa.usuarios.add(usuario);
+        System.out.println("Usuario registrado correctamente y asociado al vehículo con placa: " + placa);
+    }
+
+
     public static void buscarVehiculoPlaca(Scanner scanner, EmpresaTransporte empresa){
         String placa = null;
         scanner.nextLine();
@@ -187,7 +222,6 @@ public class App {
                         System.out.println("Nombre: "+propietario.nombre+" Cedula: "+propietario.cedula+" Email: "+propietario.email+" Telefono: "+propietario.celular);
                     }
                 }
-
             }
         }
     }
@@ -269,6 +303,7 @@ public class App {
         }
         System.out.println("Error: Vehículo con placa " + placa + " no encontrado.");
     }
+
 }
 
 

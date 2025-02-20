@@ -1,4 +1,4 @@
-package co.edu.uniquindio.empresaTransporte;
+package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 public class Usuario {
     public String nombre;
@@ -14,25 +14,25 @@ public class Usuario {
     public String getNombre() {
         return nombre;
     }
-    public void serNombre(String nombre){
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
     public int getEdad() {
         return edad;
     }
-    public void serEdad(int edad){
+    public void setEdad(int edad){
         this.edad = edad;
     }
     public double getPeso() {
         return peso;
     }
-    public void serPeso(double peso){
+    public void setPeso(double peso){
         this.peso = peso;
     }
     public String getVehiculoRegistrado() {
         return vehiculoRegistrado;
     }
-    public void serVehiculoRegistrado(String vehiculoRegistrado){
+    public void setVehiculoRegistrado(String vehiculoRegistrado){
         this.vehiculoRegistrado = vehiculoRegistrado;
     }
 }

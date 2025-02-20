@@ -1,4 +1,4 @@
-package co.edu.uniquindio.empresaTransporte;
+package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 public class VehiculoTransporte extends Vehiculo{
     public int maximoPasajeros;

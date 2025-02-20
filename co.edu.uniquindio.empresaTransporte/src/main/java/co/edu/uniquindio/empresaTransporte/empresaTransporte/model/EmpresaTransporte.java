@@ -1,16 +1,19 @@
-package co.edu.uniquindio.empresaTransporte;
+package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 import java.util.ArrayList;
 public class EmpresaTransporte {
+    private String nombre;
     public ArrayList<Propietario>propietarios;
     public ArrayList<VehiculoCarga>vehiculosCarga;
     public ArrayList<VehiculoTransporte>vehiculosTransporte;
     public ArrayList<Usuario>usuarios;
     public EmpresaTransporte() {
-        propietarios = new ArrayList<>();
-        vehiculosCarga = new ArrayList<>();
-        vehiculosTransporte = new ArrayList<>();
-        usuarios = new ArrayList<>();
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     public ArrayList<Propietario> getPropietarios() {
         return propietarios;

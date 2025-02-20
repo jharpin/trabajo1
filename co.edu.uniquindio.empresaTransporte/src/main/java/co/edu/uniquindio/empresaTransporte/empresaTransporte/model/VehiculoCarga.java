@@ -1,4 +1,4 @@
-package co.edu.uniquindio.empresaTransporte;
+package co.edu.uniquindio.empresaTransporte.empresaTransporte.model;
 
 public class VehiculoCarga extends Vehiculo {
     public double capacidadCarga;
